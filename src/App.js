@@ -1,11 +1,12 @@
-import React from 'react';
-import {GlobalStyle} from './style.js';
+import React, { Fragment } from 'react';
+import { GlobalStyle } from './style.js';
+import Header from './common/header'
 function App() {
   return (
-    <div>
+    <Fragment>
        <GlobalStyle />
-      hello world
-    </div>
+       <Header />
+    </Fragment>
   );
 }
 
