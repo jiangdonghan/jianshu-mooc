@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import {
@@ -49,7 +49,7 @@ const Header = (props)=>{
 const mapStateToProps = (state) => {
   return {
     //仓库里的focused
-    focused: state.focused  
+    focused: state.header.focused  
   }
 }
 //方法写在里面
