@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import {
   HeaderWrapper,
@@ -12,14 +13,6 @@ import {
 } from './style'
 //任何组件开头都要大写
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      focused: false
-    }
-    this.hanldeInputFocus = this.hanldeInputFocus.bind(this)
-    this.hanldeInputBlur = this.hanldeInputBlur.bind(this)
-  }
   render() {
     return (
       <HeaderWrapper>
@@ -33,17 +26,17 @@ class Header extends Component {
           </NavItem>
           <SearchWrapper>
             <CSSTransition 
-            in={this.state.focused}
+            in={this.props.focused}
             timeout={200}
             classNames = "slide"            
             >
               <NavSearch
-                className = {this.state.focused ? 'focused':''}
-                onFocus = {this.hanldeInputFocus}
-                onBlur = {this.hanldeInputBlur}
+                className = {this.props.focused ? 'focused':''}
+                onFocus = {this.props.hanldeInputFocus}
+                onBlur = {this.props.hanldeInputBlur}
               ></NavSearch>
               </CSSTransition>
-              <i className={this.state.focused ? 'focused iconfont':'iconfont'}>&#xe622;</i>
+              <i className={this.props.focused ? 'focused iconfont':'iconfont'}>&#xe622;</i>
           </SearchWrapper>
         </Nav>
         <Addition>
@@ -53,17 +46,29 @@ class Header extends Component {
       </HeaderWrapper>
     )
   }
-  hanldeInputFocus(){
-    this.setState({
-      focused: true
-    })
-  }
-  hanldeInputBlur(){
-    this.setState({
-      focused: false
-    })
-  }
 }
 
-
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    //仓库里的focused
+    focused: state.focused  
+  }
+}
+//方法写在里面
+const mapDispatchToProps = (dispatch) => {
+  return {
+    hanldeInputFocus(){
+      const action = {
+        type: 'search_focus'
+      };
+      dispatch(action)
+    },
+    hanldeInputBlur(){
+      const action = {
+        type: 'search_blur'
+      };
+      dispatch(action)
+    }    
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (Header);
