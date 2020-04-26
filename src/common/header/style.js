@@ -27,7 +27,6 @@ export const Nav = styled.div`
   box-sizing: border-box;
   margin:0 auto;
 `
-
 export const NavItem = styled.div`
   line-height: 56px;
   color: #333;
@@ -42,6 +41,20 @@ export const NavItem = styled.div`
   }
   &.active{
     color: #ea6f5a
+  }
+`
+export const SearchWrapper = styled.div`
+  position:relative;
+  float:left;
+  .iconfont{
+    position: absolute;
+    right: 5px;
+    bottom:5px;
+    width:30px;
+    height:30px;
+    border-radius: 15px;
+    line-height:30px;
+    text-align:center;
   }
 `
 export const NavSearch = styled.input.attrs({
