@@ -3,6 +3,7 @@ import { fromJS} from 'immutable'
 //数据都存在reducer里
 const defaultState = fromJS({
   focused: false,
+  list: []
 });
 export default (state = defaultState,action) => {
   if(action.type === constants.SEARCH_FOUCS){
@@ -13,6 +14,12 @@ export default (state = defaultState,action) => {
   //避免不小心改变掉state的情况
   if(action.type === constants.SEARCH_Blur){
     return state.set('focused',false)
+  }
+  if(action.type === constants.SEARCH_Blur){
+    return state.set('focused',false)
+  }
+  if(action.type === constants.CHANGE_LIST){
+    return state.set('list',action.data)
   }
   return state
 }
