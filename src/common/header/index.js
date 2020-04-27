@@ -49,8 +49,9 @@ const Header = (props)=>{
 
 const mapStateToProps = (state) => {
   return {
-    //仓库里的focused
-    focused: state.header.get('focused') 
+    //仓库里的focused 
+    //统一成immutable
+    focused: state.getIn(['header','focused'])
   }
 }
 //方法写在里面
