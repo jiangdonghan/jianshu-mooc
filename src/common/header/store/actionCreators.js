@@ -1,6 +1,7 @@
 import * as constants from './constants'
 import {fromJS} from 'immutable'
 import axios from 'axios'
+
 export const searchFocus = () => ({
   type: constants.SEARCH_FOUCS
 })
@@ -8,7 +9,8 @@ export const searchFocus = () => ({
 export const searchBlur = () => ({
   type: constants.SEARCH_Blur
 })
-export const changeList = (data) => ({
+
+const changeList = (data) => ({
   type: constants.CHANGE_LIST,
   data: fromJS(data)
 })

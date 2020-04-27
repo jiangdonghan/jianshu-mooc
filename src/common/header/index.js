@@ -18,6 +18,7 @@ import {
 class Header extends Component{
 
   render(){
+    const {focused,hanldeInputFocus,hanldeInputBlur} = this.props
     return(
       <HeaderWrapper>
       <Logo />
@@ -35,12 +36,12 @@ class Header extends Component{
           classNames = "slide"            
           >
             <NavSearch
-              className = {this.props.focused ? 'focused':''}
-              onFocus = {this.props.hanldeInputFocus}
-              onBlur = {this.props.hanldeInputBlur}
+              className = {focused ? 'focused':''}
+              onFocus = {hanldeInputFocus}
+              onBlur = {hanldeInputBlur}
             ></NavSearch>
             </CSSTransition>
-            <i className={this.props.focused ? 'focused iconfont':'iconfont'}>&#xe622;</i>
+            <i className={focused ? 'focused iconfont':'iconfont'}>&#xe622;</i>
             {/* 聚焦显示，不聚焦不显示，show的参数为this.props.focused */}
             {this.getListArea()}
         </SearchWrapper>
@@ -52,8 +53,9 @@ class Header extends Component{
     </HeaderWrapper>      
     )
   }
-  getListArea = () => {
-    if(this.props.focused){
+  getListArea() {
+    const {focused, list} = this.props
+    if(focused){
       return (
         <SearchInfo>
         <SearchInfoTitle>热门搜索
@@ -61,7 +63,7 @@ class Header extends Component{
         </SearchInfoTitle>
         <div className="list">
           {
-            this.props.list.map((item)=>{
+            list.map((item)=>{
               return <a key={item}>{item}</a>
             })
           }

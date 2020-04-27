@@ -6,20 +6,15 @@ const defaultState = fromJS({
   list: []
 });
 export default (state = defaultState,action) => {
-  if(action.type === constants.SEARCH_FOUCS){
-    return state.set('focused',true)
+  switch(action.type) {
+    //return出去不需要break
+    case constants.SEARCH_FOUCS:
+      return state.set('focused',true);
+    case constants.SEARCH_Blur:
+      return state.set('focused',false)
+    case constants.CHANGE_LIST:
+      return state.set('list',action.data)
+    default:
+      return state
   }
-  //immutable对象的set方法会结合之前immutable对象的值
-  //和设置的值，返回一个全新的对象
-  //避免不小心改变掉state的情况
-  if(action.type === constants.SEARCH_Blur){
-    return state.set('focused',false)
-  }
-  if(action.type === constants.SEARCH_Blur){
-    return state.set('focused',false)
-  }
-  if(action.type === constants.CHANGE_LIST){
-    return state.set('list',action.data)
-  }
-  return state
 }
