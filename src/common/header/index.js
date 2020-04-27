@@ -50,7 +50,7 @@ const Header = (props)=>{
 const mapStateToProps = (state) => {
   return {
     //仓库里的focused
-    focused: state.header.focused  
+    focused: state.header.get('focused') 
   }
 }
 //方法写在里面
