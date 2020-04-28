@@ -94,6 +94,7 @@ export const SearchInfoTitle = styled.div`
   span{
     font-size:13px;
     float:right;
+    cursor: pointer;
   }
   .spin{
     display: block;

@@ -18,7 +18,7 @@ import {
 class Header extends Component{
 
   render(){
-    const {focused,hanldeInputFocus,hanldeInputBlur} = this.props
+    const {focused,hanldeInputFocus,hanldeInputBlur,list} = this.props
     return(
       <HeaderWrapper>
       <Logo />
@@ -37,7 +37,7 @@ class Header extends Component{
           >
             <NavSearch
               className = {focused ? 'focused':''}
-              onFocus = {hanldeInputFocus}
+              onFocus = {()=>hanldeInputFocus(list)}
               onBlur = {hanldeInputBlur}
             ></NavSearch>
             </CSSTransition>
@@ -97,9 +97,9 @@ const mapStateToprops = (state) => {
 //方法写在里面
 const mapDispatchToprops = (dispatch) => {
   return {
-    hanldeInputFocus(){
+    hanldeInputFocus(list){
+      if(list.size === 0) dispatch(actionCreators.getList())
       dispatch(actionCreators.searchFocus());
-      dispatch(actionCreators.getList())
     },
     hanldeInputBlur(){
       dispatch(actionCreators.searchBlur());
