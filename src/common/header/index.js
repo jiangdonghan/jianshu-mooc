@@ -54,19 +54,25 @@ class Header extends Component{
     )
   }
   getListArea() {
-    const {focused, list} = this.props
-    if(focused){
+    const {focused, list, page, mouseIn, totalPage, handleMouseEnter,handleMouseLeave,changePageList} = this.props
+    const jsList = list.toJS()
+    const pageList = [];
+    for(let i = (page-1)*10;i<page*10;i++){      
+      if(jsList[i] !== undefined ){
+        pageList.push(
+          <a key={jsList[i]}>{jsList[i]}</a>
+        )
+      } 
+    }
+    if(focused || mouseIn){
       return (
-        <SearchInfo>
+        <SearchInfo onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <SearchInfoTitle>热门搜索
-          <span>换一换</span>
+          <span onClick = {()=>changePageList(page,totalPage)}>换一换</span>
         </SearchInfoTitle>
         <div className="list">
-          {
-            list.map((item)=>{
-              return <a key={item}>{item}</a>
-            })
-          }
+          {pageList}
         </div>
       </SearchInfo>
       )
@@ -81,7 +87,10 @@ const mapStateToprops = (state) => {
     //仓库里的focused 
     //统一成immutable
     focused: state.getIn(['header','focused']),
-    list: state.getIn(['header','list'])
+    list: state.getIn(['header','list']),
+    page: state.getIn(['header','page']),
+    mouseIn: state.getIn(['header','mouseIn']),
+    totalPage: state.getIn(['header','totalPage'])
   }
 }
 //方法写在里面
@@ -93,7 +102,21 @@ const mapDispatchToprops = (dispatch) => {
     },
     hanldeInputBlur(){
       dispatch(actionCreators.searchBlur());
-    }    
+    },
+    handleMouseEnter(){
+      dispatch(actionCreators.mouseEnter());
+    },
+    handleMouseLeave(){
+      dispatch(actionCreators.mouseLeave())
+    },
+    changePageList(page,totalPage){
+      if(page !== totalPage){
+        dispatch(actionCreators.changePage(page+1))
+      }else{
+        dispatch(actionCreators.changePage(1))
+      }
+      
+    }        
   }
 }
 //ui组件 header
