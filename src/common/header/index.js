@@ -41,7 +41,7 @@ class Header extends Component{
               onBlur = {hanldeInputBlur}
             ></NavSearch>
             </CSSTransition>
-            <i className={focused ? 'focused iconfont':'iconfont'}>&#xe622;</i>
+            <i className={focused ? 'focused iconfont zoom':'iconfont zoom'}>&#xe622;</i>
             {/* 聚焦显示，不聚焦不显示，show的参数为this.props.focused */}
             {this.getListArea()}
         </SearchWrapper>
@@ -60,7 +60,7 @@ class Header extends Component{
     for(let i = (page-1)*10;i<page*10;i++){      
       if(jsList[i] !== undefined ){
         pageList.push(
-          <a key={jsList[i]}>{jsList[i]}</a>
+          <div className="pageList" key={jsList[i]}>{jsList[i]}</div>
         )
       } 
     }
@@ -69,7 +69,8 @@ class Header extends Component{
         <SearchInfo onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
         <SearchInfoTitle>热门搜索
-          <span onClick = {()=>changePageList(page,totalPage)}>换一换</span>
+          <span onClick = {()=>changePageList(page,totalPage,this.spinIcon)}>
+            <i ref={(icon)=>{this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>换一换</span>
         </SearchInfoTitle>
         <div className="list">
           {pageList}
@@ -109,7 +110,15 @@ const mapDispatchToprops = (dispatch) => {
     handleMouseLeave(){
       dispatch(actionCreators.mouseLeave())
     },
-    changePageList(page,totalPage){
+    changePageList(page,totalPage,spin){
+      let originDegree = spin.style.transform.replace(/[^0-9]/ig, '')
+      if(originDegree){
+        originDegree = parseInt(originDegree, 10);
+      }else{
+        originDegree = 0;
+      }
+      console.log(originDegree)
+      spin.style.transform = 'rotate('+(originDegree+360)+'deg)'
       if(page !== totalPage){
         dispatch(actionCreators.changePage(page+1))
       }else{
