@@ -18,3 +18,27 @@ export const HomeRight = styled.div`
   width: 240px;
   float:right;
 `
+
+export const TopicWrapper = styled.div`
+  overflow: hidden;
+  padding:20px 0 10px 0 ;
+  margin-left: -18px;
+`
+export const TopicItem = styled.div`
+  float:left;
+  background:#f7f7f7;
+  padding-right:10px;
+  margin-left:18px;
+  margin-bottom: 18px;
+  height: 32px;
+  color: #000;
+  line-height: 32px;
+  font-size: 14px;
+  border:1px solid #dcdcdc;
+  border-radius:4px;
+  img{
+    display:block;
+    float:left;
+    margin-right:10px;
+  }
+`
