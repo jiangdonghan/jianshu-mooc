@@ -62,6 +62,7 @@ export const SearchWrapper = styled.div`
   }
 `
 export const SearchInfo = styled.div`
+  background:white;
   position:absolute;
   left: 0;
   top: 56px;
