@@ -18,6 +18,8 @@ export default (state = defaultState,action) => {
         recommendList: fromJS(action.recommendList),
         writerList: fromJS(action.writerList)
       })
+    case constants.ADD_ARTICLE_LIST:
+      return state.set('articleList', state.get('articleList').concat(action.list))  
     default: return state
   }
 }
