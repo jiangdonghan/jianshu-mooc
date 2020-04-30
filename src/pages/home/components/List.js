@@ -9,7 +9,7 @@ import{
 class List extends Component {
   render()
    {
-    const {list,getMoreList} = this.props;
+    const {list,getMoreList,page} = this.props;
     return (
       <div>
         {
@@ -27,18 +27,19 @@ class List extends Component {
             )
           })
         }
-        <LoadMore onClick={getMoreList}>更多文字</LoadMore>  
+        <LoadMore onClick={()=>getMoreList(page)}>更多文字</LoadMore>  
       </div>
     )
   }
 }
 const mapState = (state)=>({
-  list: state.getIn(['home','articleList'])
+  list: state.getIn(['home','articleList']),
+  page: state.getIn(['home','articlePage'])
 })
 
 const mapDispatch = (dispatch) => ({
-  getMoreList(){
-    dispatch(actionCreators.getMoreList())
+  getMoreList(page){
+    dispatch(actionCreators.getMoreList(page))
   }
 })
 export default connect(mapState,mapDispatch)(List)
