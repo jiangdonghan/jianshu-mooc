@@ -136,6 +136,7 @@ export const WriterItem = styled.div`
     padding: 0;
     font-size: 13px;
     color: #42c02e;
+    cursor: pointer;
   }
   p{
     font-size:12px;
