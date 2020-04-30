@@ -70,10 +70,42 @@ const defaultState = fromJS({
   {
     id:4,
     url: 'https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
+  }],
+  writerList: [{
+    id:1,
+    url: 'https://upload.jianshu.io/users/upload_avatars/5796592/73837104-47e5-4fe9-a5be-054bd50b06f7.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+    name: '孙笑川',
+    count:'321.4k',
+    like: '17k' 
   },
-
-  ]
-  
+  {
+    id:2,
+    url: 'https://upload.jianshu.io/users/upload_avatars/5796592/73837104-47e5-4fe9-a5be-054bd50b06f7.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+    name: '孙笑川',
+    count:'321.4k',
+    like: '17k' 
+  },
+  {
+    id:3,
+    url: 'https://upload.jianshu.io/users/upload_avatars/5796592/73837104-47e5-4fe9-a5be-054bd50b06f7.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+    name: '孙笑川',
+    count:'321.4k',
+    like: '17k' 
+  },
+  {
+    id:4,
+    url: 'https://upload.jianshu.io/users/upload_avatars/5796592/73837104-47e5-4fe9-a5be-054bd50b06f7.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+    name: '孙笑川',
+    count:'321.4k',
+    like: '17k' 
+  },
+  {
+    id:5,
+    url: 'https://upload.jianshu.io/users/upload_avatars/5796592/73837104-47e5-4fe9-a5be-054bd50b06f7.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp',
+    name: '孙笑川',
+    count:'321.4k',
+    like: '17k' 
+  }]
 });
 
 export default (state = defaultState,action) => {

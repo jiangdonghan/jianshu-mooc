@@ -86,3 +86,59 @@ export const RecommendItem = styled.div`
   background: url('${(props)=>props.imgUrl}');
   background-size: contain;
 `
+
+export const WriteWrapper = styled.div`
+  width:278px;
+  height:300px;
+
+`
+export const WriterTitleWrapper = styled.div`
+  margin-top:10px;
+  margin-bottom: 5px;
+  line-height: 20px;
+  height:20px;
+  span{
+    color:#969696;
+    font-size:14px;
+  }
+  .title-left{
+    float:left;
+  }
+  .title-right{
+    float:right;
+  }
+`
+export const WriterItem = styled.div`
+  margin-top:10px;
+  overflow: hidden;
+  height:50px;
+  margin-bottom:15px;
+  .nameWrapper{
+    height:30px;
+  }
+  .avatar{
+    float:left;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    margin-right:10px;
+  }
+  .name{
+    padding-top: 5px;
+    font-size: 14px;
+    display:block;
+    float:left;
+  }
+  .follow{
+    float: right;
+    margin-top: 5px;
+    padding: 0;
+    font-size: 13px;
+    color: #42c02e;
+  }
+  p{
+    font-size:12px;
+    color: #969696;
+  }
+`
