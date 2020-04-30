@@ -5,6 +5,7 @@ import { GlobalIconFontStyle } from './statics/iconfont/iconfont';
 import { Provider } from 'react-redux'
 import Home from './pages/home'
 import Detail from './pages/detail'
+import Login from './pages/login'
 import Header from './common/header'
 import store from './store'
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Header />
           <Route path='/' exact component={Home}></Route>
           <Route path='/detail' exact component={Detail}></Route>
+          <Route path='/login' exact component={Login}></Route>
         </div>
         </BrowserRouter>
     </Provider>
