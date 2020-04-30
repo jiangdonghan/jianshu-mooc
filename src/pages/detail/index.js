@@ -8,7 +8,7 @@ import {
 } from './style'
 class Detail extends Component {
   render() {
-    console.log(this.props.match.params.id)
+    console.log(this.props.location.search)
     const {title} = this.props
     console.log(title)
     return (
