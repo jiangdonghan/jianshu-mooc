@@ -12,16 +12,14 @@ function App() {
     <Provider store={store}>
        <GlobalStyle />
        
-       <GlobalIconFontStyle />
-       <div>
-        <Header />
+       <GlobalIconFontStyle />        
         <BrowserRouter>
         <div>
+          <Header />
           <Route path='/' exact component={Home}></Route>
           <Route path='/detail' exact component={Detail}></Route>
         </div>
         </BrowserRouter>
-       </div>
     </Provider>
   );
 }

@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {actionCreators} from '../store'
+import { link, Link } from 'react-router-dom'
 import{
   ListItem,
   ListInfo,
@@ -15,15 +16,17 @@ class List extends PureComponent {
         {
           list.map((item,index)=>{
             return(
-              <ListItem key={index}>
-              <img className = 'pic'
-              src={item.get('url')}
-              alt = "pic"/>
-              <ListInfo>
-                <h3 className="title">{item.get('title')}</h3>
-                <p className="detail">{item.get('detail')}</p>
-              </ListInfo>
-            </ListItem>  
+              <Link key = {index} to='/detail'>
+                <ListItem>
+                <img className = 'pic'
+                src={item.get('url')}
+                alt = "pic"/>
+                <ListInfo>
+                  <h3 className="title">{item.get('title')}</h3>
+                  <p className="detail">{item.get('detail')}</p>
+                </ListInfo>
+              </ListItem> 
+              </Link>            
             )
           })
         }
