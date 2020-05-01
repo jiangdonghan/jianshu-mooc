@@ -30,7 +30,6 @@ class Home extends PureComponent {
           <Writer />
         </HomeRight>
         {this.props.showScroll ? <BackTop onClick={this.handleScrollTop}>回到顶部</BackTop> : null}
-        
       </HomeWrapper>
     )
   }
